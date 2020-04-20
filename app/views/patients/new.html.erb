@@ -1,0 +1,37 @@
+<%= link_to("Go back to list", patients_path, :class => 'back-link') %>
+
+<div class="subjects new">
+  <h2>Create Patient</h2>
+
+  <%= form_for(@patient) do |f| %>
+
+    <table summary="Subject form fields">
+      <tr>
+        <th>First Name</th>
+        <td><%= f.text_field(:firstName) %></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td><%= f.text_field(:lastName) %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= f.text_field(:email) %></td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td><%= f.text_field(:phone) %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Create Patient") %>
+    </div>
+
+    <br>
+    <div>
+      <%= f.object.errors.full_messages.join(", ") if f.object.errors.any? %> 
+    </div>
+
+  <% end %>
+</div>

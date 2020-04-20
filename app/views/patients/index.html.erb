@@ -1,0 +1,32 @@
+<div>
+
+  <% if !flash[:message].blank? %>
+    <div>
+      <%= flash[:message] %>
+    </div>
+  <% end %>
+  <h2>Patients</h2>
+
+  <%= link_to("Add New Patient", new_patient_path, :class => 'action new') %>
+
+  <table>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Actions</th>
+    </tr>
+    <% @patients.each do |patient| %>
+    <tr>
+      <td><%= patient.id %></td>
+      <td><%= patient.firstName %></td>
+      <td><%= patient.lastName%></td>
+      <td class="actions">
+        <%= link_to("Show", patient_path(patient), :class => 'action show') %>
+        <%= link_to("Edit", edit_patient_path(patient), :class => 'action edit') %>
+        <%= link_to("Delete", delete_patient_path(patient), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
