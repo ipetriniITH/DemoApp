@@ -1,0 +1,13 @@
+ <% if !flash[:notice].blank? %>
+   <div>
+     <%= flash[:notice] %>
+   </div>
+ <% end %>
+<div >
+  <h2>Admin Menu</h2>
+  <div>Logged in as:</div>
+  <ul>
+    <li><%= link_to("Manage patients", patients_path) %></li>
+    <li><%= link_to("Logout", access_logout_path) %></li>
+  </ul>
+</div>
