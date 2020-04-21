@@ -1,5 +1,7 @@
 class PatientsController < ApplicationController
 
+  before_action :confirm_logged_in
+
   def index
     @patients = Patient.sorted_by_id
   end
