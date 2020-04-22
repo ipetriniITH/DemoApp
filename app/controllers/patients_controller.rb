@@ -30,9 +30,10 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
     if @patient.save
       flash[:message] = "Patient '#{@patient.full_name}' created successfully"
-      redirect_to(patients_path)
+      redirect_to patients_path
     else
-      render('new')
+      flash[:message] = "Patient couldn't be created"
+      render 'new'
     end
   end
 
@@ -48,9 +49,9 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
     if @patient.update!(patient_params)
       flash[:message] = "Patient '#{@patient.full_name}' updated successfully"
-      redirect_to(patients_path(@patient))
+      redirect_to patients_path(@patient)
     else
-      render('edit')
+      render 'edit'
     end
   end
 
@@ -66,7 +67,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
     @patient.destroy
     flash[:message] = "Patient '#{@patient.full_name}' destroyed successfully"
-    redirect_to(patients_path)
+    redirect_to patients_path
   end
 
   private

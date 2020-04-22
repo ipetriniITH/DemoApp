@@ -18,8 +18,8 @@ class AccessController < ApplicationController
   # Attempt to login user or show error message.
   def attempt_login
     if params[:username].present? && params[:password].present?
-      user = Admin.where(username: params[:username]).first
-      if user
+      user = Admin.find_by(username: params[:username])
+      if user.present?
         authorized_user = user.authenticate(params[:password])
       end
     end
@@ -27,10 +27,10 @@ class AccessController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       flash[:notice] = 'Welcome!'
-      redirect_to(admin_path)
+      redirect_to admin_path
     else
       flash.now[:notice] = 'Invalid username/password combination.'
-      render('login')
+      render 'login'
     end
   end
 
@@ -39,6 +39,6 @@ class AccessController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = 'Logged out'
-    redirect_to(access_login_path)
+    redirect_to access_login_path
   end
 end
