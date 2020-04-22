@@ -1,10 +1,8 @@
-<%= link_to("Go back to list", patients_path, :class => 'back-link') %>
+<%= link_to("Go back to list", patients_path, class: 'back-link') %>
 
 <div class="subjects edit">
   <h2>Update Patient</h2>
-
   <%= form_for(@patient) do |f| %>
-
     <table summary="Subject form fields">
       <tr>
         <th>First Name</th>
@@ -25,13 +23,11 @@
     </table>
 
     <div class="form-buttons">
-      <%= f.submit("Update Patient") %>
+      <%= f.submit('Update Patient') %>
     </div>
-
     <br>
     <div>
       <%= f.object.errors.full_messages.join(", ") if f.object.errors.any? %> 
     </div>
-
   <% end %>
 </div>

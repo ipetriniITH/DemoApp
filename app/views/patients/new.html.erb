@@ -2,9 +2,7 @@
 
 <div class="subjects new">
   <h2>Create Patient</h2>
-
   <%= form_for(@patient) do |f| %>
-
     <table summary="Subject form fields">
       <tr>
         <th>First Name</th>
@@ -23,15 +21,12 @@
         <td><%= f.text_field(:phone) %></td>
       </tr>
     </table>
-
     <div class="form-buttons">
       <%= f.submit("Create Patient") %>
     </div>
-
     <br>
     <div>
       <%= f.object.errors.full_messages.join(", ") if f.object.errors.any? %> 
     </div>
-
   <% end %>
 </div>

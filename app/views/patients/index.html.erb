@@ -1,6 +1,5 @@
 <div>
-
-  <% if !flash[:message].blank? %>
+  <% if flash[:message].present? %>
     <div>
       <%= flash[:message] %>
     </div>
