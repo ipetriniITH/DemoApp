@@ -19,8 +19,8 @@
     <% @patients.each do |patient| %>
     <tr>
       <td><%= patient.id %></td>
-      <td><%= patient.firstName %></td>
-      <td><%= patient.lastName%></td>
+      <td><%= patient.first_name %></td>
+      <td><%= patient.last_name%></td>
       <td class="actions">
         <%= link_to("Show", patient_path(patient), :class => 'action show') %>
         <%= link_to("Edit", edit_patient_path(patient), :class => 'action edit') %>
