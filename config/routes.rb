@@ -1,13 +1,13 @@
-#Draw routes
+# Draw routes
 Rails.application.routes.draw do
 
-  #Set root path
+  # Set root path
   root 'patients#index'
 
-  #Set admin path
+  # Set admin path
   get 'admin', to: 'access#menu'
 
-  #Set paths to handle admin access
+  # Set paths to handle admin access
   get 'access/menu'
   get 'access/login'
   post 'access/attempt_login'
