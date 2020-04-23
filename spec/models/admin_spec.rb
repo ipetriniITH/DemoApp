@@ -1,6 +1,8 @@
 require 'rails_helper'
 
+# Define Admin tests.
 RSpec.describe Admin, type: :model do
+  # Define all validation tests.
   context 'validation tests' do
     it 'should fail validation when username is empty' do
       admin = Admin.new(

@@ -1,23 +1,26 @@
 require 'rails_helper'
 
-RSpec.shared_context 'common' do 
-    before do 
-      @user_one = Patient.create(
-        first_name: 'First name',
-        last_name: 'Last name',
-        email: 'userone@email.com',
-        phone: 12345678
-      )
-      @user_two = Patient.create(
-        first_name: 'First name',
-        last_name: 'Last name',
-        email: 'usertwo@email.com',
-        phone: 12345678
-      )
-    end
+# Define shared context.
+RSpec.shared_context 'common' do
+  before do 
+    @user_one = Patient.create(
+      first_name: 'First name',
+      last_name: 'Last name',
+      email: 'userone@email.com',
+      phone: 12345678
+    )
+    @user_two = Patient.create(
+      first_name: 'First name',
+      last_name: 'Last name',
+      email: 'usertwo@email.com',
+      phone: 12345678
+    )
+  end
 end
 
+# Define Patient tests.
 RSpec.describe Patient, type: :model do
+  # Define all validation tests.
   context 'validation tests' do
     it 'should fail validation when first_name is empty' do
       patient = Patient.new(
@@ -87,6 +90,7 @@ RSpec.describe Patient, type: :model do
     end
   end
 
+  # Define all named scopes tests.
   context 'scope tests' do
     include_context 'common'
     it 'should return patients ordered by id' do
@@ -94,6 +98,7 @@ RSpec.describe Patient, type: :model do
     end
   end
 
+  # Define all method tests
   context 'method tests' do
     include_context 'common'
     it 'should return patient full name' do
