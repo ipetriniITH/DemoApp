@@ -1,9 +1,5 @@
-<% if flash[:notice].present? %>
-  <div>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-<div >
+<%= render partial: 'flash' %> 
+<div>
   <h2>Admin Menu</h2>
   <div>Logged in as:</div>
   <ul>

@@ -1,8 +1,4 @@
- <% if flash[:notice].present? %>
-   <div>
-     <%= flash[:notice] %>
-   </div>
- <% end %>
+<%= render partial: 'flash' %> 
 <div>
   <%= form_tag(access_attempt_login_path, :method => :post) do %>
   <table>
