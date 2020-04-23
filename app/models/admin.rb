@@ -5,7 +5,7 @@ class Admin < ApplicationRecord
   has_secure_password
 
   # Usernames that are not allowed
-  FORBIDDEN_USERNAMES = %w[fstuer jlove].freeze
+  FORBIDDEN_USERNAMES = %w[fergussuter jimmylove].freeze
 
   validates :username, length: { within: 8..25 },
                        uniqueness: true
