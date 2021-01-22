@@ -1,0 +1,31 @@
+<%= link_to("Go back to list", patients_path) %>
+
+<div>
+  <h2>Patient id: <%= @patient.id %> </h2>
+  <table summary="Patient detail view">
+    <tr>
+      <th>First Name</th>
+      <td><%= @patient.first_name %></td>
+    </tr> 
+    <tr>
+      <th>Last Name</th>
+      <td><%= @patient.last_name %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @patient.email ? @patient.email : '-' %></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><%= @patient.phone ? @patient.phone : '-' %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @patient.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @patient.updated_at %></td>
+    </tr>
+  </table>
+</div>
